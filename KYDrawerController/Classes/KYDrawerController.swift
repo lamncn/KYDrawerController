@@ -140,6 +140,8 @@ open class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
+    public var barStyle = UIStatusBarStyle.lightContent
+
     public var mainViewController: UIViewController! {
         didSet {
             let isVisible = (drawerState == .closed)
@@ -289,7 +291,9 @@ open class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
         super.init(coder: aDecoder)
     }
     
-    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.barStyle
+    }
     
     /**************************************************************************/
     // MARK: - Life Cycle
